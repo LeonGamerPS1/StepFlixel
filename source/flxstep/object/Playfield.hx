@@ -41,4 +41,10 @@ class Playfield extends FlxGroup
         
        
 	}
+
+	public function beat(b:Float)
+	{
+		for (i in receptors)
+			i.light.alpha = 1;
+	}
 }
