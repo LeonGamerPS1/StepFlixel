@@ -23,8 +23,6 @@ class Receptor extends FlxSkewedSprite
 
 	function reload()
 	{
-		if (lastSkin == skin)
-			return;
 		lastSkin = skin;
 		loadGraphic(Paths.image('noteskins/$skin/receptor')); // getting width and height
 		loadGraphic(Paths.image('noteskins/$skin/receptor'), true, Math.floor(width / 2), Math.floor(height));
@@ -48,6 +46,7 @@ class Receptor extends FlxSkewedSprite
 		light.updateHitbox();
 		light.centerOffsets();
 		light.centerOrigin();
+		light.antialiasing = true;
 	}
 
 	public function playAnim(s:String, force:Bool)
@@ -56,6 +55,7 @@ class Receptor extends FlxSkewedSprite
 		centerOffsets();
 		centerOrigin();
 	}
+
 
 	override function draw()
 	{
@@ -77,7 +77,7 @@ class Receptor extends FlxSkewedSprite
 			glow.skew.set(skew.x, skew.y);
 			glow.x -= 15 * (glow.width / 96);
 			glow.y -= 15 * (glow.height / 96);
-			glow.alpha = FlxMath.lerp(0, glow.alpha, Math.exp(-FlxG.elapsed * 1));
+			glow.alpha = FlxMath.lerp(0, glow.alpha, Math.exp(-FlxG.elapsed * 4));
 
 			glow.angle = angle;
 			glow.draw();

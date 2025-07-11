@@ -10,7 +10,8 @@ class SongLoader
 	{
 		var pathSM:String = Paths.getPath('songs/$songName/CHART.sm');
 		var stepManiaData = new StepMania().fromFile(pathSM);
-        
+
+
 		return stepManiaData; // please dont you dare fail me stepmania
 	}
 }

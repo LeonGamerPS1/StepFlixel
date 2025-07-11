@@ -22,6 +22,8 @@ class PlayState extends FlxState
 		super.create();
 		playfield = new Playfield();
 		playfield.speed = song.getChartMeta().scrollSpeeds.get('Hard') ?? 1.2;
+		for (note in song.getNotes())
+			playfield.unspawnNotes.push(note);
 
 		add(playfield);
 	}
